@@ -1,62 +1,7 @@
----- merge_loc_conf Matches (61 in 21 files) ----
-Ngx_http.c (src\http):        if (module->merge_loc_conf) {
-Ngx_http.c (src\http):            rv = module->merge_loc_conf(cf, saved.loc_conf[ctx_index],
-Ngx_http.c (src\http):        rv = module->merge_loc_conf(cf, loc_conf[ctx_index],
-Ngx_http_access_module.c (src\http\modules):static char *ngx_http_access_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_access_module.c (src\http\modules):    ngx_http_access_merge_loc_conf         /* merge location configuration */
-Ngx_http_access_module.c (src\http\modules):ngx_http_access_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_auth_basic_module.c (src\http\modules):static char *ngx_http_auth_basic_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_auth_basic_module.c (src\http\modules):    ngx_http_auth_basic_merge_loc_conf     /* merge location configuration */
-Ngx_http_auth_basic_module.c (src\http\modules):ngx_http_auth_basic_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_autoindex_module.c (src\http\modules):static char *ngx_http_autoindex_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_autoindex_module.c (src\http\modules):    ngx_http_autoindex_merge_loc_conf      /* merge location configration */
-Ngx_http_autoindex_module.c (src\http\modules):ngx_http_autoindex_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_charset_filter_module.c (src\http\modules):static char *ngx_http_charset_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_charset_filter_module.c (src\http\modules):    ngx_http_charset_merge_loc_conf        /* merge location configuration */
-Ngx_http_charset_filter_module.c (src\http\modules):ngx_http_charset_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_config.h (src\http):    char       *(*merge_loc_conf)(ngx_conf_t *cf, void *prev, void *conf);
-Ngx_http_core_module.c (src\http):static char *ngx_http_core_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_core_module.c (src\http):    ngx_http_core_merge_loc_conf           /* merge location configuration */
-Ngx_http_core_module.c (src\http):ngx_http_core_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_dav_module.c (src\http\modules):static char *ngx_http_dav_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_dav_module.c (src\http\modules):    ngx_http_dav_merge_loc_conf            /* merge location configuration */
-Ngx_http_dav_module.c (src\http\modules):ngx_http_dav_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_degradation_module.c (src\http\modules):static char *ngx_http_degradation_merge_loc_conf(ngx_conf_t *cf, void *parent,
-Ngx_http_degradation_module.c (src\http\modules):    ngx_http_degradation_merge_loc_conf    /* merge location configuration */
-Ngx_http_degradation_module.c (src\http\modules):ngx_http_degradation_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_fastcgi_module.c (src\http\modules):static char *ngx_http_fastcgi_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_fastcgi_module.c (src\http\modules):    ngx_http_fastcgi_merge_loc_conf        /* merge location configuration */
-Ngx_http_fastcgi_module.c (src\http\modules):ngx_http_fastcgi_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_index_module.c (src\http\modules):static char *ngx_http_index_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_index_module.c (src\http\modules):    ngx_http_index_merge_loc_conf          /* merge location configration */
-Ngx_http_index_module.c (src\http\modules):ngx_http_index_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_log_module.c (src\http\modules):static char *ngx_http_log_merge_loc_conf(ngx_conf_t *cf, void *parent,
-Ngx_http_log_module.c (src\http\modules):    ngx_http_log_merge_loc_conf            /* merge location configration */
-Ngx_http_log_module.c (src\http\modules):ngx_http_log_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_memcached_module.c (src\http\modules):static char *ngx_http_memcached_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_memcached_module.c (src\http\modules):    ngx_http_memcached_merge_loc_conf      /* merge location configration */
-Ngx_http_memcached_module.c (src\http\modules):ngx_http_memcached_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_perl_module.c (src\http\modules\perl):static char *ngx_http_perl_merge_loc_conf(ngx_conf_t *cf, void *parent,
-Ngx_http_perl_module.c (src\http\modules\perl):    ngx_http_perl_merge_loc_conf           /* merge location configuration */
-Ngx_http_perl_module.c (src\http\modules\perl):ngx_http_perl_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_proxy_module.c (src\http\modules):static char *ngx_http_proxy_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_proxy_module.c (src\http\modules):    ngx_http_proxy_merge_loc_conf          /* merge location configration */
-Ngx_http_proxy_module.c (src\http\modules):ngx_http_proxy_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_random_index_module.c (src\http\modules):static char *ngx_http_random_index_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_random_index_module.c (src\http\modules):    ngx_http_random_index_merge_loc_conf   /* merge location configration */
-Ngx_http_random_index_module.c (src\http\modules):ngx_http_random_index_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_realip_module.c (src\http\modules):static char *ngx_http_realip_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_realip_module.c (src\http\modules):    ngx_http_realip_merge_loc_conf         /* merge location configuration */
-Ngx_http_realip_module.c (src\http\modules):ngx_http_realip_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_rewrite_module.c (src\http\modules):static char *ngx_http_rewrite_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_rewrite_module.c (src\http\modules):    ngx_http_rewrite_merge_loc_conf        /* merge location configration */
-Ngx_http_rewrite_module.c (src\http\modules):ngx_http_rewrite_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_scgi_module.c (src\http\modules):static char *ngx_http_scgi_merge_loc_conf(ngx_conf_t *cf, void *parent,
-Ngx_http_scgi_module.c (src\http\modules):    ngx_http_scgi_merge_loc_conf           /* merge location configuration */
-Ngx_http_scgi_module.c (src\http\modules):ngx_http_scgi_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_ssi_filter_module.c (src\http\modules):static char *ngx_http_ssi_merge_loc_conf(ngx_conf_t *cf,
-Ngx_http_ssi_filter_module.c (src\http\modules):    ngx_http_ssi_merge_loc_conf            /* merge location configuration */
-Ngx_http_ssi_filter_module.c (src\http\modules):ngx_http_ssi_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
-Ngx_http_uwsgi_module.c (src\http\modules):static char *ngx_http_uwsgi_merge_loc_conf(ngx_conf_t *cf, void *parent,
-Ngx_http_uwsgi_module.c (src\http\modules):    ngx_http_uwsgi_merge_loc_conf          /* merge location configuration */
-Ngx_http_uwsgi_module.c (src\http\modules):ngx_http_uwsgi_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
+---- ngx_http_core_server Matches (6 in 1 files) ----
+Ngx_http_core_module.c (src\http):static char *ngx_http_core_server(ngx_conf_t *cf, ngx_command_t *cmd,
+Ngx_http_core_module.c (src\http):static char *ngx_http_core_server_name(ngx_conf_t *cf, ngx_command_t *cmd,
+Ngx_http_core_module.c (src\http):      ngx_http_core_server,
+Ngx_http_core_module.c (src\http):      ngx_http_core_server_name,
+Ngx_http_core_module.c (src\http):ngx_http_core_server(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy) /* http module µÄ³õÊ¼»¯ */
+Ngx_http_core_module.c (src\http):ngx_http_core_server_name(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)

@@ -200,7 +200,7 @@ static ngx_command_t  ngx_http_core_commands[] = {
 
     { ngx_string("server"),
       NGX_HTTP_MAIN_CONF|NGX_CONF_BLOCK|NGX_CONF_MULTI|NGX_CONF_NOARGS,
-      ngx_http_core_server,
+      ngx_http_core_server, 
       0,
       0,
       NULL },
@@ -2423,7 +2423,7 @@ ngx_http_cleanup_add(ngx_http_request_t *r, size_t size)
 }
 
 
-static char *
+static char * /* 配置项设置函数 */
 ngx_http_core_server(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy) /* http module 的初始化 */
 {
     char                        *rv;
@@ -2459,7 +2459,7 @@ ngx_http_core_server(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy) /* http mo
         return NGX_CONF_ERROR;
     }
 
-    for (i = 0; ngx_modules[i]; i++) {
+    for (i = 0; ngx_modules[i]; i++) { /* ngx_modules 是configure 文件在编译时生成的ngx_modules.c */
         if (ngx_modules[i]->type != NGX_HTTP_MODULE) {
             continue;
         }

@@ -1086,7 +1086,7 @@ ngx_conf_set_str_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ngx_str_t        *field, *value;
     ngx_conf_post_t  *post;
 
-    field = (ngx_str_t *) (p + cmd->offset);
+    field = (ngx_str_t *) (p + cmd->offset); /* ÅäÖÃÏî */
 
     if (field->data) {
         return "is duplicate";
@@ -1094,7 +1094,7 @@ ngx_conf_set_str_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
     value = cf->args->elts;
 
-    *field = value[1];
+    *field = value[1]; /* ¸³Öµ */
 
     if (cmd->post) {
         post = cmd->post;
