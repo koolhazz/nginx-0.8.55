@@ -934,7 +934,7 @@ ngx_http_core_find_config_phase(ngx_http_request_t *r,
     r->content_handler = NULL;
     r->uri_changed = 0;
 
-    rc = ngx_http_core_find_location(r);
+    rc = ngx_http_core_find_location(r); /* 寻找请求对应的handler */
 
     if (rc == NGX_ERROR) {
         ngx_http_finalize_request(r, NGX_HTTP_INTERNAL_SERVER_ERROR);
@@ -953,7 +953,7 @@ ngx_http_core_find_config_phase(ngx_http_request_t *r,
                    (clcf->noname ? "*" : (clcf->exact_match ? "=" : "")),
                    &clcf->name);
 
-    ngx_http_update_location_config(r);
+    ngx_http_update_location_config(r); /* 更新请求的处理方法 */
 
     ngx_log_debug2(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,
                    "http cl:%O max:%O",
@@ -1345,7 +1345,7 @@ ngx_http_core_content_phase(ngx_http_request_t *r,
     ngx_int_t  rc;
     ngx_str_t  path;
 
-    if (r->content_handler) {
+    if (r->content_handler) { /* 请求匹配的处理模块 */
         r->write_event_handler = ngx_http_request_empty_handler;
         ngx_http_finalize_request(r, r->content_handler(r));
         return NGX_OK;
