@@ -780,7 +780,7 @@ ngx_event_process_init(ngx_cycle_t *cycle)
         if (ngx_event_flags & NGX_USE_IOCP_EVENT) {
             ngx_iocp_conf_t  *iocpcf;
 
-            rev->handler = ngx_event_acceptex;
+            rev->handler = ngx_event_acceptex; /* 设置读事件的处理函数  */
 
             if (ngx_use_accept_mutex) {
                 continue;
@@ -800,7 +800,7 @@ ngx_event_process_init(ngx_cycle_t *cycle)
             }
 
         } else {
-            rev->handler = ngx_event_accept;
+            rev->handler = ngx_event_accept; /* 设置读事件的处理函数  */
 
             if (ngx_use_accept_mutex) {
                 continue;

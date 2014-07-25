@@ -46,7 +46,7 @@ ngx_event_accept(ngx_event_t *ev)
     do {
         socklen = NGX_SOCKADDRLEN;
 
-        s = accept(lc->fd, (struct sockaddr *) sa, &socklen);
+        s = accept(lc->fd, (struct sockaddr *) sa, &socklen); /* 接入连接 */
 
         if (s == -1) {
             err = ngx_socket_errno;

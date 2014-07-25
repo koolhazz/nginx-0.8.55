@@ -31,7 +31,7 @@ ngx_rbtree_insert(ngx_thread_volatile ngx_rbtree_t *tree,
     root = (ngx_rbtree_node_t **) &tree->root;
     sentinel = tree->sentinel;
 
-    if (*root == sentinel) {
+    if (*root == sentinel) { 
         node->parent = NULL;
         node->left = sentinel;
         node->right = sentinel;
@@ -45,21 +45,21 @@ ngx_rbtree_insert(ngx_thread_volatile ngx_rbtree_t *tree,
 
     /* re-balance tree */
 
-    while (node != *root && ngx_rbt_is_red(node->parent)) {
+    while (node != *root && ngx_rbt_is_red(node->parent)) { 
 
-        if (node->parent == node->parent->parent->left) {
-            temp = node->parent->parent->right;
+        if (node->parent == node->parent->parent->left) { 
+            temp = node->parent->parent->right; 
 
-            if (ngx_rbt_is_red(temp)) {
+            if (ngx_rbt_is_red(temp)) { 
                 ngx_rbt_black(node->parent);
                 ngx_rbt_black(temp);
                 ngx_rbt_red(node->parent->parent);
                 node = node->parent->parent;
 
             } else {
-                if (node == node->parent->right) {
+                if (node == node->parent->right) { 
                     node = node->parent;
-                    ngx_rbtree_left_rotate(root, sentinel, node);
+                    ngx_rbtree_left_rotate(root, sentinel, node); 
                 }
 
                 ngx_rbt_black(node->parent);
@@ -101,7 +101,7 @@ ngx_rbtree_insert_value(ngx_rbtree_node_t *temp, ngx_rbtree_node_t *node,
 
     for ( ;; ) {
 
-        p = (node->key < temp->key) ? &temp->left : &temp->right;
+        p = (node->key < temp->key) ? &temp->left : &temp->right; /* 这里判断插入的位置 */
 
         if (*p == sentinel) {
             break;
@@ -114,7 +114,7 @@ ngx_rbtree_insert_value(ngx_rbtree_node_t *temp, ngx_rbtree_node_t *node,
     node->parent = temp;
     node->left = sentinel;
     node->right = sentinel;
-    ngx_rbt_red(node);
+    ngx_rbt_red(node);/* 新增节点默认设置为红色 */
 }
 
 

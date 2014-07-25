@@ -1637,7 +1637,7 @@ ngx_http_process_request(ngx_http_request_t *r)
     r->stat_writing = 1;
 #endif
 
-    c->read->handler = ngx_http_request_handler;
+    c->read->handler = ngx_http_request_handler; /* 设置读写处理函数 */
     c->write->handler = ngx_http_request_handler;
     r->read_event_handler = ngx_http_block_reading;
 
