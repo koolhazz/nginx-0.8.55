@@ -14,7 +14,7 @@
 
 typedef struct ngx_listening_s  ngx_listening_t;
 
-struct ngx_listening_s {
+struct ngx_listening_s { /* 所有需要监听的端口以这个结构体进行抽象 */
     ngx_socket_t        fd;
 
     struct sockaddr    *sockaddr;
