@@ -1,99 +1,15 @@
----- recv Matches (112 in 25 files) ----
-Ngx_channel.c (src\os\unix):    n = recvmsg(s, &msg, 0);
-Ngx_channel.c (src\os\unix):        ngx_log_error(NGX_LOG_ALERT, log, err, "recvmsg() failed");
-Ngx_channel.c (src\os\unix):        ngx_log_debug0(NGX_LOG_DEBUG_CORE, log, 0, "recvmsg() returned zero");
-Ngx_channel.c (src\os\unix):                      "recvmsg() returned not enough data: %uz", n);
-Ngx_channel.c (src\os\unix):                          "recvmsg() returned too small ancillary data");
-Ngx_channel.c (src\os\unix):                          "recvmsg() returned invalid ancillary data "
-Ngx_channel.c (src\os\unix):                      "recvmsg() truncated data");
-Ngx_channel.c (src\os\unix):                          "recvmsg() returned no ancillary data");
-Ngx_connection.h (src\core):    ngx_recv_pt         recv;
-Ngx_connection.h (src\core):    ngx_recv_chain_pt   recv_chain;
-Ngx_darwin_init.c (src\os\unix):    ngx_unix_recv,
-Ngx_darwin_init.c (src\os\unix):    ngx_udp_unix_recv,
-Ngx_event.h (src\event):#define ngx_recv             ngx_io.recv
-Ngx_event.h (src\event):#define ngx_recv_chain       ngx_io.recv_chain
-Ngx_event.h (src\event):#define ngx_udp_recv         ngx_io.udp_recv
-Ngx_event_accept.c (src\event):        c->recv = ngx_recv;
-Ngx_event_accept.c (src\event):        c->recv_chain = ngx_recv_chain;
-Ngx_event_connect.c (src\event):    c->recv = ngx_recv;
-Ngx_event_connect.c (src\event):    c->recv_chain = ngx_recv_chain;
-Ngx_event_openssl.c (src\event):static ngx_int_t ngx_ssl_handle_recv(ngx_connection_t *c, int n);
-Ngx_event_openssl.c (src\event):        c->recv = ngx_ssl_recv;
-Ngx_event_openssl.c (src\event):        c->recv_chain = ngx_ssl_recv_chain;
-Ngx_event_openssl.c (src\event):ngx_ssl_recv_chain(ngx_connection_t *c, ngx_chain_t *cl)
-Ngx_event_openssl.c (src\event):        n = ngx_ssl_recv(c, last, b->end - last);
-Ngx_event_openssl.c (src\event):ngx_ssl_recv(ngx_connection_t *c, u_char *buf, size_t size)
-Ngx_event_openssl.c (src\event):        c->ssl->last = ngx_ssl_handle_recv(c, n);
-Ngx_event_openssl.c (src\event):ngx_ssl_handle_recv(ngx_connection_t *c, int n)
-Ngx_event_openssl.h (src\event):ssize_t ngx_ssl_recv(ngx_connection_t *c, u_char *buf, size_t size);
-Ngx_event_openssl.h (src\event):ssize_t ngx_ssl_recv_chain(ngx_connection_t *c, ngx_chain_t *cl);
-Ngx_event_pipe.c (src\event):             * and not to call c->recv_chain().
-Ngx_event_pipe.c (src\event):            n = p->upstream->recv_chain(p->upstream, chain);
-Ngx_event_pipe.c (src\event):                           "pipe recv chain: %z", n);
-Ngx_freebsd_init.c (src\os\unix):    ngx_unix_recv,
-Ngx_freebsd_init.c (src\os\unix):    ngx_udp_unix_recv,
-Ngx_http_request.c (src\http):    n = recv(c->fd, (char *) buf, 1, MSG_PEEK);
-Ngx_http_request.c (src\http):        n = c->recv(c, r->header_in->last,
-Ngx_http_request.c (src\http):    n = recv(c->fd, buf, 1, MSG_PEEK);
-Ngx_http_request.c (src\http):    n = c->recv(c, b->last, size);
-Ngx_http_request.c (src\http):        n = c->recv(c, buffer, NGX_HTTP_LINGERING_BUFFER_SIZE);
-Ngx_http_request_body.c (src\http):            n = c->recv(c, rb->buf->last, size);
-Ngx_http_request_body.c (src\http):                           "http client request body recv %z", n);
-Ngx_http_request_body.c (src\http):        n = r->connection->recv(r->connection, buffer, size);
-Ngx_http_upstream.c (src\http):    n = recv(c->fd, buf, 1, MSG_PEEK);
-Ngx_http_upstream.c (src\http):                   "http upstream recv(): %d", n);
-Ngx_http_upstream.c (src\http):        n = c->recv(c, u->buffer.last, u->buffer.end - u->buffer.last);
-Ngx_http_upstream.c (src\http):        n = c->recv(c, b->last, size);
-Ngx_http_upstream.c (src\http):            n = upstream->recv(upstream, b->last, size);
-Ngx_linux_init.c (src\os\unix):    ngx_unix_recv,
-Ngx_linux_init.c (src\os\unix):    ngx_udp_unix_recv,
-Ngx_mail_auth_http_module.c (src\mail):    n = ngx_recv(c, ctx->response->pos, size);
-Ngx_mail_handler.c (src\mail):    n = c->recv(c, s->buffer->last, s->buffer->end - s->buffer->last);
-Ngx_mail_proxy_module.c (src\mail):    n = s->proxy->upstream.connection->recv(s->proxy->upstream.connection,
-Ngx_mail_proxy_module.c (src\mail):    char                   *action, *recv_action, *send_action;
-Ngx_mail_proxy_module.c (src\mail):            recv_action = "proxying and reading from upstream";
-Ngx_mail_proxy_module.c (src\mail):            recv_action = "proxying and reading from client";
-Ngx_mail_proxy_module.c (src\mail):            recv_action = "proxying and reading from client";
-Ngx_mail_proxy_module.c (src\mail):            recv_action = "proxying and reading from upstream";
-Ngx_mail_proxy_module.c (src\mail):            c->log->action = recv_action;
-Ngx_mail_proxy_module.c (src\mail):            n = src->recv(src, b->last, size);
-Ngx_mail_smtp_handler.c (src\mail):    n = c->recv(c, s->buffer->last, s->buffer->end - s->buffer->last);
-Ngx_os.h (src\os\unix):typedef ssize_t (*ngx_recv_pt)(ngx_connection_t *c, u_char *buf, size_t size);
-Ngx_os.h (src\os\unix):typedef ssize_t (*ngx_recv_chain_pt)(ngx_connection_t *c, ngx_chain_t *in);
-Ngx_os.h (src\os\unix):    ngx_recv_pt        recv;
-Ngx_os.h (src\os\unix):    ngx_recv_chain_pt  recv_chain;
-Ngx_os.h (src\os\unix):    ngx_recv_pt        udp_recv;
-Ngx_os.h (src\os\unix):ssize_t ngx_unix_recv(ngx_connection_t *c, u_char *buf, size_t size);
-Ngx_os.h (src\os\unix):ssize_t ngx_udp_unix_recv(ngx_connection_t *c, u_char *buf, size_t size);
-Ngx_posix_init.c (src\os\unix):    ngx_unix_recv,
-Ngx_posix_init.c (src\os\unix):    ngx_udp_unix_recv,
-Ngx_readv_chain.c (src\os\unix):                 * bytes may be received between kevent() and recv()
-Ngx_readv_chain.c (src\os\unix):                     * on FreeBSD recv() may return 0 on closed socket
-Ngx_recv.c (src\os\unix):ngx_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)
-Ngx_recv.c (src\os\unix):                       "recv: eof:%d, avail:%d, err:%d",
-Ngx_recv.c (src\os\unix):        n = recv(c->fd, buf, size, 0);
-Ngx_recv.c (src\os\unix):                       "recv: fd:%d %d of %d", c->fd, n, size);
-Ngx_recv.c (src\os\unix):                 * bytes may be received between kevent() and recv()
-Ngx_recv.c (src\os\unix):                     * on FreeBSD recv() may return 0 on closed socket
-Ngx_recv.c (src\os\unix):                           "recv() not ready");
-Ngx_recv.c (src\os\unix):            n = ngx_connection_error(c, err, "recv() failed");
-Ngx_recv.c (src\os\unix):ngx_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)
-Ngx_recv.c (src\os\unix):        n = recv(c->fd, buf, size, 0);
-Ngx_recv.c (src\os\unix):                       "recv: fd:%d %d of %d", c->fd, n, size);
-Ngx_recv.c (src\os\unix):                           "recv() not ready");
-Ngx_recv.c (src\os\unix):            n = ngx_connection_error(c, err, "recv() failed");
-Ngx_resolver.c (src\core):        n = ngx_udp_recv(c, buf, NGX_RESOLVER_UDP_SIZE);
-Ngx_solaris_init.c (src\os\unix):    ngx_unix_recv,
-Ngx_solaris_init.c (src\os\unix):    ngx_udp_unix_recv,
-Ngx_udp_recv.c (src\os\unix):ngx_udp_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)
-Ngx_udp_recv.c (src\os\unix):        n = recv(c->fd, buf, size, 0);
-Ngx_udp_recv.c (src\os\unix):                       "recv: fd:%d %d of %d", c->fd, n, size);
-Ngx_udp_recv.c (src\os\unix):                 * bytes may be received between kevent() and recv()
-Ngx_udp_recv.c (src\os\unix):                           "recv() not ready");
-Ngx_udp_recv.c (src\os\unix):            n = ngx_connection_error(c, err, "recv() failed");
-Ngx_udp_recv.c (src\os\unix):ngx_udp_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)
-Ngx_udp_recv.c (src\os\unix):        n = recv(c->fd, buf, size, 0);
-Ngx_udp_recv.c (src\os\unix):                       "recv: fd:%d %d of %d", c->fd, n, size);
-Ngx_udp_recv.c (src\os\unix):                           "recv() not ready");
-Ngx_udp_recv.c (src\os\unix):            n = ngx_connection_error(c, err, "recv() failed");
+---- unuse Matches (14 in 8 files) ----
+Ngx_cycle.c (src\core):            /* unused shared zone */
+Ngx_event_pipe.c (src\event):            /* TODO: free unused bufs */
+Ngx_files.h (src\os\unix): * because glibc 2.3 sets warn_unused_result attribute for write()
+Ngx_http_cache.h (src\http):                                     /* 11 unused bits */
+Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "306 unused" */
+Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "418 unused" */
+Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "419 unused" */
+Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "420 unused" */
+Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "421 unused" */
+Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "508 unused" */
+Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "509 unused" */
+Ngx_http_perl_module.h (src\http\modules\perl): * workaround for "unused variable `Perl___notused'" warning
+Ngx_http_request.h (src\http):/* unused                                  1 */
+Ngx_palloc.c (src\core):                       "free: %p, unused: %uz", p, p->d.end - p->d.last);
