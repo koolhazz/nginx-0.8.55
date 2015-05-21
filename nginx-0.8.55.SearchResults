@@ -1,15 +1,197 @@
----- unuse Matches (14 in 8 files) ----
-Ngx_cycle.c (src\core):            /* unused shared zone */
-Ngx_event_pipe.c (src\event):            /* TODO: free unused bufs */
-Ngx_files.h (src\os\unix): * because glibc 2.3 sets warn_unused_result attribute for write()
-Ngx_http_cache.h (src\http):                                     /* 11 unused bits */
-Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "306 unused" */
-Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "418 unused" */
-Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "419 unused" */
-Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "420 unused" */
-Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "421 unused" */
-Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "508 unused" */
-Ngx_http_header_filter_module.c (src\http):    /* ngx_null_string, */  /* "509 unused" */
-Ngx_http_perl_module.h (src\http\modules\perl): * workaround for "unused variable `Perl___notused'" warning
-Ngx_http_request.h (src\http):/* unused                                  1 */
-Ngx_palloc.c (src\core):                       "free: %p, unused: %uz", p, p->d.end - p->d.last);
+---- extern Matches (196 in 52 files) ----
+Ngx_aio_module.c (src\event\modules):extern ngx_event_module_t  ngx_kqueue_module_ctx;
+Ngx_aio_read.c (src\os\unix):extern int  ngx_kqueue;
+Ngx_aio_write.c (src\os\unix):extern int  ngx_kqueue;
+Ngx_alloc.h (src\os\unix):extern ngx_uint_t  ngx_pagesize;
+Ngx_alloc.h (src\os\unix):extern ngx_uint_t  ngx_pagesize_shift;
+Ngx_alloc.h (src\os\unix):extern ngx_uint_t  ngx_cacheline_size;
+Ngx_conf_file.h (src\core):extern ngx_uint_t     ngx_max_module;
+Ngx_conf_file.h (src\core):extern ngx_module_t  *ngx_modules[];
+Ngx_cpp_test_module.cpp (src\misc):extern "C" {
+Ngx_crc32.h (src\core):extern uint32_t  *ngx_crc32_table_short;
+Ngx_crc32.h (src\core):extern uint32_t   ngx_crc32_table256[];
+Ngx_cycle.h (src\core):extern volatile ngx_cycle_t  *ngx_cycle;
+Ngx_cycle.h (src\core):extern ngx_array_t            ngx_old_cycles;
+Ngx_cycle.h (src\core):extern ngx_module_t           ngx_core_module;
+Ngx_cycle.h (src\core):extern ngx_uint_t             ngx_test_config;
+Ngx_cycle.h (src\core):extern ngx_uint_t             ngx_quiet_mode;
+Ngx_cycle.h (src\core):extern ngx_tls_key_t          ngx_core_tls_key;
+Ngx_darwin.h (src\os\unix):extern int       ngx_darwin_kern_osreldate;
+Ngx_darwin.h (src\os\unix):extern int       ngx_darwin_hw_ncpu;
+Ngx_darwin.h (src\os\unix):extern u_long    ngx_darwin_net_inet_tcp_sendspace;
+Ngx_darwin_config.h (src\os\unix):extern char **environ;
+Ngx_event.c (src\event):extern ngx_module_t ngx_kqueue_module;
+Ngx_event.c (src\event):extern ngx_module_t ngx_eventport_module;
+Ngx_event.c (src\event):extern ngx_module_t ngx_devpoll_module;
+Ngx_event.c (src\event):extern ngx_module_t ngx_epoll_module;
+Ngx_event.c (src\event):extern ngx_module_t ngx_rtsig_module;
+Ngx_event.c (src\event):extern ngx_module_t ngx_select_module;
+Ngx_event.h (src\event):extern ngx_event_actions_t   ngx_event_actions;
+Ngx_event.h (src\event):extern ngx_os_io_t  ngx_io;
+Ngx_event.h (src\event):extern ngx_atomic_t          *ngx_connection_counter;
+Ngx_event.h (src\event):extern ngx_atomic_t          *ngx_accept_mutex_ptr;
+Ngx_event.h (src\event):extern ngx_shmtx_t            ngx_accept_mutex;
+Ngx_event.h (src\event):extern ngx_uint_t             ngx_use_accept_mutex;
+Ngx_event.h (src\event):extern ngx_uint_t             ngx_accept_events;
+Ngx_event.h (src\event):extern ngx_uint_t             ngx_accept_mutex_held;
+Ngx_event.h (src\event):extern ngx_msec_t             ngx_accept_mutex_delay;
+Ngx_event.h (src\event):extern ngx_int_t              ngx_accept_disabled;
+Ngx_event.h (src\event):extern ngx_atomic_t  *ngx_stat_accepted;
+Ngx_event.h (src\event):extern ngx_atomic_t  *ngx_stat_handled;
+Ngx_event.h (src\event):extern ngx_atomic_t  *ngx_stat_requests;
+Ngx_event.h (src\event):extern ngx_atomic_t  *ngx_stat_active;
+Ngx_event.h (src\event):extern ngx_atomic_t  *ngx_stat_reading;
+Ngx_event.h (src\event):extern ngx_atomic_t  *ngx_stat_writing;
+Ngx_event.h (src\event):extern sig_atomic_t           ngx_event_timer_alarm;
+Ngx_event.h (src\event):extern ngx_uint_t             ngx_event_flags;
+Ngx_event.h (src\event):extern ngx_module_t           ngx_events_module;
+Ngx_event.h (src\event):extern ngx_module_t           ngx_event_core_module;
+Ngx_event_openssl.c (src\event): * It seems that the typical length of the external ASN1 representation
+Ngx_event_openssl.h (src\event):extern int  ngx_ssl_connection_index;
+Ngx_event_openssl.h (src\event):extern int  ngx_ssl_server_conf_index;
+Ngx_event_openssl.h (src\event):extern int  ngx_ssl_session_cache_index;
+Ngx_event_posted.h (src\event):extern ngx_mutex_t  *ngx_posted_events_mutex;
+Ngx_event_posted.h (src\event):extern ngx_thread_volatile ngx_event_t  *ngx_posted_accept_events;
+Ngx_event_posted.h (src\event):extern ngx_thread_volatile ngx_event_t  *ngx_posted_events;
+Ngx_event_timer.h (src\event):extern ngx_mutex_t  *ngx_event_timer_mutex;
+Ngx_event_timer.h (src\event):extern ngx_thread_volatile ngx_rbtree_t  ngx_event_timer_rbtree;
+Ngx_file.h (src\core):extern ngx_atomic_t      *ngx_temp_number;
+Ngx_file.h (src\core):extern ngx_atomic_int_t   ngx_random_number;
+Ngx_files.h (src\os\unix):extern ngx_uint_t  ngx_file_aio;
+Ngx_file_aio_read.c (src\os\unix):extern int  ngx_kqueue;
+Ngx_freebsd.h (src\os\unix):extern int         ngx_freebsd_kern_osreldate;
+Ngx_freebsd.h (src\os\unix):extern int         ngx_freebsd_hw_ncpu;
+Ngx_freebsd.h (src\os\unix):extern u_long      ngx_freebsd_net_inet_tcp_sendspace;
+Ngx_freebsd.h (src\os\unix):extern ngx_uint_t  ngx_freebsd_sendfile_nbytes_bug;
+Ngx_freebsd.h (src\os\unix):extern ngx_uint_t  ngx_freebsd_use_tcp_nopush;
+Ngx_freebsd.h (src\os\unix):extern ngx_uint_t  ngx_freebsd_debug_malloc;
+Ngx_freebsd_config.h (src\os\unix):extern char **environ;
+Ngx_freebsd_config.h (src\os\unix):extern char  *malloc_options;
+Ngx_freebsd_rfork_thread.c (src\os\unix):extern int  __isthreaded;
+Ngx_freebsd_rfork_thread.h (src\os\unix):extern char    *ngx_freebsd_kern_usrstack;
+Ngx_freebsd_rfork_thread.h (src\os\unix):extern size_t   ngx_thread_stack_size;
+Ngx_freebsd_rfork_thread.h (src\os\unix):extern void    **ngx_tls;
+Ngx_http.h (src\http):extern ngx_module_t  ngx_http_module;
+Ngx_http.h (src\http):extern ngx_str_t  ngx_http_html_default_types[];
+Ngx_http.h (src\http):extern ngx_http_output_header_filter_pt  ngx_http_top_header_filter;
+Ngx_http.h (src\http):extern ngx_http_output_body_filter_pt    ngx_http_top_body_filter;
+Ngx_http_cache.h (src\http):extern ngx_str_t  ngx_http_cache_status[];
+Ngx_http_core_module.h (src\http):extern ngx_module_t  ngx_http_core_module;
+Ngx_http_core_module.h (src\http):extern ngx_uint_t ngx_http_max_module;
+Ngx_http_core_module.h (src\http):extern ngx_str_t  ngx_http_core_get_method;
+Ngx_http_perl_module.h (src\http\modules\perl):#include <EXTERN.h>
+Ngx_http_perl_module.h (src\http\modules\perl):extern ngx_module_t  ngx_http_perl_module;
+Ngx_http_perl_module.h (src\http\modules\perl):extern void boot_DynaLoader(pTHX_ CV* cv);
+Ngx_http_request.h (src\http):extern ngx_http_header_t       ngx_http_headers_in[];
+Ngx_http_request.h (src\http):extern ngx_http_header_out_t   ngx_http_headers_out[];
+Ngx_http_ssi_filter_module.h (src\http\modules):extern ngx_module_t  ngx_http_ssi_filter_module;
+Ngx_http_ssl_module.h (src\http\modules):extern ngx_module_t  ngx_http_ssl_module;
+Ngx_http_upstream.h (src\http):extern ngx_module_t        ngx_http_upstream_module;
+Ngx_http_upstream.h (src\http):extern ngx_conf_bitmask_t  ngx_http_upstream_cache_method_mask[];
+Ngx_http_upstream.h (src\http):extern ngx_conf_bitmask_t  ngx_http_upstream_ignore_headers_masks[];
+Ngx_http_variables.h (src\http):extern ngx_http_variable_value_t  ngx_http_variable_null_value;
+Ngx_http_variables.h (src\http):extern ngx_http_variable_value_t  ngx_http_variable_true_value;
+Ngx_http_xslt_filter_module.c (src\http\modules):static void ngx_http_xslt_sax_external_subset(void *data, const xmlChar *name,
+Ngx_http_xslt_filter_module.c (src\http\modules):    const xmlChar *externalId, const xmlChar *systemId);
+Ngx_http_xslt_filter_module.c (src\http\modules):        ctxt->sax->externalSubset = ngx_http_xslt_sax_external_subset;
+Ngx_http_xslt_filter_module.c (src\http\modules):ngx_http_xslt_sax_external_subset(void *data, const xmlChar *name,
+Ngx_http_xslt_filter_module.c (src\http\modules):    const xmlChar *externalId, const xmlChar *systemId)
+Ngx_http_xslt_filter_module.c (src\http\modules):                   externalId ? externalId : (xmlChar *) "",
+Ngx_linux.h (src\os\unix):extern int ngx_linux_rtsig_max;
+Ngx_linux_aio_read.c (src\os\unix):extern int            ngx_eventfd;
+Ngx_linux_aio_read.c (src\os\unix):extern aio_context_t  ngx_aio_ctx;
+Ngx_linux_config.h (src\os\unix):extern ssize_t sendfile(int s, int fd, int32_t *offset, size_t size);
+Ngx_linux_config.h (src\os\unix):extern char **environ;
+Ngx_log.h (src\core):extern ngx_module_t  ngx_errlog_module;
+Ngx_log.h (src\core):extern ngx_uint_t    ngx_use_stderr;
+Ngx_mail.h (src\mail):extern ngx_uint_t    ngx_mail_max_module;
+Ngx_mail.h (src\mail):extern ngx_module_t  ngx_mail_core_module;
+Ngx_mail_imap_module.h (src\mail):extern ngx_module_t  ngx_mail_imap_module;
+Ngx_mail_pop3_module.h (src\mail):extern ngx_module_t  ngx_mail_pop3_module;
+Ngx_mail_smtp_module.h (src\mail):extern ngx_module_t  ngx_mail_smtp_module;
+Ngx_mail_ssl_module.h (src\mail):extern ngx_module_t  ngx_mail_ssl_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_core_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_errlog_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_conf_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_events_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_event_core_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_epoll_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_core_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_log_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_upstream_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_static_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_autoindex_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_index_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_auth_basic_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_access_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_limit_zone_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_limit_req_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_geo_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_map_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_split_clients_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_referer_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_rewrite_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_proxy_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_fastcgi_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_uwsgi_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_scgi_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_memcached_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_empty_gif_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_browser_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_upstream_ip_hash_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_hello_world_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_write_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_header_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_chunked_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_range_header_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_gzip_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_postpone_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_ssi_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_charset_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_userid_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_headers_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_copy_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_range_body_filter_module;
+Ngx_modules.c (objs):extern ngx_module_t  ngx_http_not_modified_filter_module;
+Ngx_os.h (src\os\unix):extern ngx_os_io_t  ngx_os_io;
+Ngx_os.h (src\os\unix):extern ngx_int_t    ngx_ncpu;
+Ngx_os.h (src\os\unix):extern ngx_int_t    ngx_max_sockets;
+Ngx_os.h (src\os\unix):extern ngx_uint_t   ngx_inherited_nonblocking;
+Ngx_os.h (src\os\unix):extern ngx_uint_t   ngx_tcp_nodelay_and_tcp_nopush;
+Ngx_posix_config.h (src\os\unix):extern char **environ;
+Ngx_process.h (src\os\unix):extern int            ngx_argc;
+Ngx_process.h (src\os\unix):extern char         **ngx_argv;
+Ngx_process.h (src\os\unix):extern char         **ngx_os_argv;
+Ngx_process.h (src\os\unix):extern ngx_pid_t      ngx_pid;
+Ngx_process.h (src\os\unix):extern ngx_socket_t   ngx_channel;
+Ngx_process.h (src\os\unix):extern ngx_int_t      ngx_process_slot;
+Ngx_process.h (src\os\unix):extern ngx_int_t      ngx_last_process;
+Ngx_process.h (src\os\unix):extern ngx_process_t  ngx_processes[NGX_MAX_PROCESSES];
+Ngx_process_cycle.h (src\os\unix):extern ngx_uint_t      ngx_process;
+Ngx_process_cycle.h (src\os\unix):extern ngx_pid_t       ngx_pid;
+Ngx_process_cycle.h (src\os\unix):extern ngx_pid_t       ngx_new_binary;
+Ngx_process_cycle.h (src\os\unix):extern ngx_uint_t      ngx_inherited;
+Ngx_process_cycle.h (src\os\unix):extern ngx_uint_t      ngx_daemonized;
+Ngx_process_cycle.h (src\os\unix):extern ngx_uint_t      ngx_threaded;
+Ngx_process_cycle.h (src\os\unix):extern ngx_uint_t      ngx_exiting;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_reap;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_sigio;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_sigalrm;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_quit;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_debug_quit;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_terminate;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_noaccept;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_reconfigure;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_reopen;
+Ngx_process_cycle.h (src\os\unix):extern sig_atomic_t    ngx_change_binary;
+Ngx_rtsig_module.c (src\event\modules):extern ngx_event_module_t  ngx_poll_module_ctx;
+Ngx_setproctitle.c (src\os\unix):extern char **environ;
+Ngx_solaris_config.h (src\os\unix):extern char **environ;
+Ngx_thread.h (src\os\unix):extern ngx_int_t              ngx_threads_n;
+Ngx_thread.h (src\os\unix):extern volatile ngx_thread_t  ngx_threads[NGX_MAX_THREADS];
+Ngx_times.h (src\core):extern volatile ngx_time_t  *ngx_cached_time;
+Ngx_times.h (src\core):extern volatile ngx_str_t    ngx_cached_err_log_time;
+Ngx_times.h (src\core):extern volatile ngx_str_t    ngx_cached_http_time;
+Ngx_times.h (src\core):extern volatile ngx_str_t    ngx_cached_http_log_time;
+Ngx_times.h (src\core):extern volatile ngx_msec_t  ngx_current_msec;
